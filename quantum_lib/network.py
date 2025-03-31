@@ -11,6 +11,14 @@ def gradient(y: torch.Tensor, x: torch.Tensor, order:int =1)->torch.Tensor:
                 create_graph=True,retain_graph=True)[0]
     return derivative
 
+def laplacian(y: torch.Tensor, x: torch.Tensor) -> torch.Tensor:
+    if x.dim() == 2:
+        x = x.unsqueeze(0)  # Ensure batch dimension
+
+    grad1 = torch.autograd.grad(y, x, grad_outputs=torch.ones_like(y).sum(), create_graph=True, retain_graph=True)[0]
+    grad2 = torch.autograd.grad(grad1, x, grad_outputs=torch.ones_like(grad1), create_graph=True, retain_graph=True)[0]
+    
+    return grad2.sum(dim=(1, 2))  # Sum over N_body and N_dim, keeping batch dimension
 
 
 class SinAct(torch.nn.Module):
