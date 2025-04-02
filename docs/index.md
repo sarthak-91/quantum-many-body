@@ -8,14 +8,14 @@ $$
 exactly in many cases is not easy. There are very few problems that can be exactly solved. For example only the simplest atom Hydrogen has a closed form solution for the Schrodinger's Equation. So what do we do? We come up with methods of approximations.  Perturbation theory is one example of this method. It relies on splitting the Hamiltonian into two: $$H = H_0 + H_p$$ where $$H_0$$ has a form that we know the solution to and $H_p$ is treated as a small perturbation of the Hamiltonian that produces perturbation in the wavefunction and the energy eigenvalues. There is another method: the Variational Method which as the name implies relies on finding the closest solution varying some parameters of concern. 
 
 The method goes like this: 
-1. Choose a trial wavefunction \( \psi_{\vec{\theta}} \) that depends on parameters, written as a vector \( \vec{\theta} = \{ \theta_1, \theta_2, \theta_3, \dots, \theta_n \} \).  
+1. Choose a trial wavefunction $$ \psi_{\vec{\theta}} $$ that depends on parameters, written as a vector $$ \vec{\theta} = { \theta_1, \theta_2, \theta_3, \dots, \theta_n } $$.  
 
 2. Compute the expectation value of the Hamiltonian:  
-   \[
+   $$
    E_{\vec{\theta}} = \frac{\langle \psi_{\vec{\theta}} | H | \psi_{\vec{\theta}} \rangle}{\langle \psi_{\vec{\theta}} | \psi_{\vec{\theta}} \rangle}
-   \]  
+   $$
 
-3. Choose the optimal values of \( \{ \theta_1, \theta_2, \theta_3, \dots, \theta_n \} \) by minimizing \( E_{\vec{\theta}} \).  
+3. Choose the optimal values of $$ \theta_1, \theta_2, \theta_3, \dots, \theta_n $$ by minimizing $$ E_{\vec{\theta}} $$.  
 
 Let us try the Hydrogen atom.  
 The Schrodinger's equation for the radial part of the hydrogen atom is:
@@ -34,9 +34,13 @@ $$
 
 where, 
 $$\rho=\frac{r}{r_0}$$,
+
 $$r_0 = \frac{\hbar^2}{m e^2}$$,
+
 $$E_0 = \frac{\hbar^2}{mr_0^2}$$ and 
+
 $$\mathcal{E} = \frac{E}{E_0}$$
+
 In atomic units, the distances are measured in Bohr's Radius and energy is measured in Hartrees. 
 
 So the Hamiltonian becomes: 
@@ -57,7 +61,10 @@ Now for step 2, we have,
 
 $$<u(\rho)|u(\rho)> = \frac{1}{4\alpha^3}$$
 
-$$<u(\rho)|H|u(\rho)>$$ = $$\frac{\alpha-1}{4\alpha^2} - \frac{1}{8\alpha}$$
+$$
+\langle u(\rho) | H | u(\rho) \rangle = \frac{\alpha - 1}{4\alpha^2} - \frac{1}{8\alpha}
+$$
+
 
 Putting it all together, the expectation of the Hamiltonian has the form:
 
