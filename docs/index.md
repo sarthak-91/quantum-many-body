@@ -39,7 +39,7 @@ $$r_0 = \frac{\hbar^2}{m e^2}$$,
 
 $$E_0 = \frac{\hbar^2}{mr_0^2}$$ and 
 
-$$\mathcal{E} = \frac{E}{E_0}$$
+$$\mathcal{E} = \frac{E}{E_0}$$. 
 
 In atomic units, the distances are measured in Bohr's Radius and energy is measured in Hartrees. 
 
@@ -72,7 +72,7 @@ $$
 E(\alpha) = \frac{\alpha^2}{2} - \alpha
 $$
 
-It is easy to see that the minimum value of $$E(\alpha)$$ is -0.5 at $$\alpha=1$$. Energies in atomic units is called Hartrees which is 27.2114 eV so the ground state energy we obtained in eV is 13.605 eV. Fortunately for us, our ansatz turned out to have the exact form as the ground state of hydrogen.     
+It is easy to see that the minimum value of $$E(\alpha)$$ is -0.5 Hartree at $$\alpha=1$$. 1 Hartree is 27.2114 eV so the ground state energy we obtained in eV is 13.605 eV. Fortunately for us, our ansatz turned out to have the exact form as the ground state of hydrogen.     
 
 <script type="text/javascript" async
   src="https://polyfill.io/v3/polyfill.min.js?features=es6">
