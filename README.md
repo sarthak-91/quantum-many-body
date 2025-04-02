@@ -10,29 +10,47 @@ The method goes like this:
 
 Let us try the Hydrogen atom.  
 The Schrodinger's equation for the radial part of the hydrogen atom is:
+
 $-\frac{\hbar^2}{2m} \frac{d^2 u(r)}{dr^2} + \frac{\hbar^2}{2m} \frac{l(l+1)}{r^2} u(r) - \frac{u(r)}{4\pi\epsilon_0 r} = E u(r)$   
+
 where $u(r) = rR(r)$ 
  
 Writing in atomic units (basically setting the constants to 1) the equation becomes:
+
 $-\frac{1}{2}\frac{d^2 u}{d\rho^2} + \frac{l(l+1)}{2\rho^2} u - \frac{u}{\rho} = \mathcal{E} u$
 
 where, 
 $\rho=\frac{r}{r_0}$,
-$r_0 = \frac{\hbar^2}{m e^2}$  ,
+
+$r_0 = \frac{\hbar^2}{m e^2}$,
+
 $E_0 = \frac{\hbar^2}{mr_0^2}$ and 
+
 $\mathcal{E} = \frac{E}{E_0}$
+
 In atomic units, the distances are measured in Bohr's Radius and energy is measured in Hartrees. 
 
 So the Hamiltonian becomes: 
-$H =  -\frac{1}{2}\frac{d^2}{d\rho^2} + \frac{l(l+1)}{2\rho^2}  - \frac{1}{\rho}$
-Now how do we guess the trial wavefunction?  Well to do that we have to be careful in our motivation to choose the trial wavefunction. One method is to look at what happens in the extremes like $\rho \to 0$ and $\rho \to \infty$. When $\rho$ is large,  the solution is dominated by a negative exponential of the form $e^{-\alpha\rho}$ and when  $\rho$ is small the solution is dominated by $\rho^{l+1}$. So for the ground state (l=0) we can guess our ansatz to be of the form:
-$u_\alpha(\rho) = \rho e^{-\alpha \rho}$ where $\alpha$ is the variational parameter of our wavefunction which is restricted to be more than 0. That is step number 1. 
 
-Now for step 2, we have $<u(\rho)|u(\rho)> = \frac{1}{4\alpha^3}$ and $<u(\rho)|H|u(\rho)>$ = $\frac{\alpha-1}{4\alpha^2} - \frac{1}{8\alpha}$ 
+$H =  -\frac{1}{2}\frac{d^2}{d\rho^2} + \frac{l(l+1)}{2\rho^2}  - \frac{1}{\rho}$
+
+Now how do we guess the trial wavefunction?  Well to do that we have to be careful in our motivation to choose the trial wavefunction. One method is to look at what happens in the extremes like $\rho \to 0$ and $\rho \to \infty$. When $\rho$ is large,  the solution is dominated by a negative exponential of the form $e^{-\alpha\rho}$ and when  $\rho$ is small the solution is dominated by $\rho^{l+1}$. So for the ground state (l=0) we can guess our ansatz to be of the form:
+
+$u_\alpha(\rho) = \rho e^{-\alpha \rho}$ 
+
+where $\alpha$ is the variational parameter of our wavefunction which is restricted to be more than 0. That is step number 1. 
+
+Now for step 2, we have, 
+$<u(\rho)|u(\rho)> = \frac{1}{4\alpha^3}$ 
+
+$<u(\rho)|H|u(\rho)>$ = $\frac{\alpha-1}{4\alpha^2} - \frac{1}{8\alpha}$ 
+
 Putting it all together, the expectation of the Hamiltonian has the form: 
+
 $E(\alpha)$ = $\frac{\alpha^2}{2} - \alpha$. 
+
 It is easy to see that the minimum value of $E(\alpha)$ is -0.5 at $\alpha=1$. Energies in atomic units is called Hartrees which is 27.2114 eV so the ground state energy we obtained in eV is 13.605 eV. Fortunately for us, our ansatz turned out to have the exact form as the ground state of hydrogen.     
 
-## Variational Quantum Monte Carlo Method 
+
 
 
