@@ -1,5 +1,5 @@
 
-# Variational Method in Quantum Mechanics 
+## Variational Method in Quantum Mechanics 
 
 Solving Time Independent Schrodinger's Equation, 
 $$
