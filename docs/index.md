@@ -1,17 +1,15 @@
 
 # Variational Method in Quantum Mechanics 
 
-Solving Time Independent Schrodinger's Equation  
-
+Solving Time Independent Schrodinger's Equation, 
 $$
 H\psi = E\psi
 $$
-
-exactly in many cases is not easy. There are very few problems that can be exactly solved. For example only the simplest atom Hydrogen has a closed form solution for the Schrodinger's Equation. So what do we do? We come up with methods of approximations.  Perturbation theory is one example of this method. It relies on splitting the Hamiltonian into two: $H = H_0 + H_p$ where $H_0$ has a form that we know the solution to and $H_p$ is treated as a small perturbation of the Hamiltonian that produces perturbation in the wavefunction and the energy eigenvalues. There is another method: the Variational Method which as the name implies relies on finding the closest solution varying some parameters of concern. 
+exactly in many cases is not easy. There are very few problems that can be exactly solved. For example only the simplest atom Hydrogen has a closed form solution for the Schrodinger's Equation. So what do we do? We come up with methods of approximations.  Perturbation theory is one example of this method. It relies on splitting the Hamiltonian into two: $$H = H_0 + H_p$$ where $$H_0$$ has a form that we know the solution to and $H_p$ is treated as a small perturbation of the Hamiltonian that produces perturbation in the wavefunction and the energy eigenvalues. There is another method: the Variational Method which as the name implies relies on finding the closest solution varying some parameters of concern. 
 
 The method goes like this: 
-1. Choose a trial wavefunction $$\psi_\vec{\theta}$$ that depends on a parameters which is written here as a vector $\vec{\theta} = {\theta_1, \theta_2, \theta_3, ... \theta_n}$  
-2. Compute the expectation value of the Hamiltonian $$E_\vec{\theta} = \frac{<\psi_\vec{\theta}|H|\psi_\vec{\theta}>}{<\psi_\vec{\theta}|\psi_\vec{\theta}>}$$  
+1. Choose a trial wavefunction $$\psi_\vec{\theta}$$ that depends on a parameters which is written here as a vector $$\vec{\theta} = {\theta_1, \theta_2, \theta_3, ... \theta_n}$$  
+2. Compute the expectation value of the Hamiltonian $$ E_\vec{\theta} = \frac{<\psi_\vec{\theta}|H|\psi_\vec{\theta}>}{<\psi_\vec{\theta}|\psi_\vec{\theta}>}$$  
 3. Choose the optimal values of $${\theta_1, \theta_2, \theta_3, ... \theta_n}$$ by minimizing $$E_\vec{\theta}$$ 
 
 Let us try the Hydrogen atom.  
@@ -37,16 +35,25 @@ $$\mathcal{E} = \frac{E}{E_0}$$
 In atomic units, the distances are measured in Bohr's Radius and energy is measured in Hartrees. 
 
 So the Hamiltonian becomes: 
+
 $$
 H = -\frac{1}{2}\frac{d^2}{d\rho^2} + \frac{l(l+1)}{2\rho^2} - \frac{1}{\rho}
 $$
-Now how do we guess the trial wavefunction?  Well to do that we have to be careful in our motivation to choose the trial wavefunction. One method is to look at what happens in the extremes like $\rho \to 0$ and $\rho \to \infty$. When $\rho$ is large,  the solution is dominated by a negative exponential of the form $e^{-\alpha\rho}$ and when  $\rho$ is small the solution is dominated by $\rho^{l+1}$. So for the ground state (l=0) we can guess our ansatz to be of the form:
+
+Now how do we guess the trial wavefunction?  Well to do that we have to be careful in our motivation to choose the trial wavefunction. One method is to look at what happens in the extremes like $\rho \to 0$ and $$\rho \to \infty$$. When $$\rho$$ is large,  the solution is dominated by a negative exponential of the form $$e^{-\alpha\rho}$$ and when  $$\rho$$ is small the solution is dominated by $$\rho^{l+1}$$. So for the ground state (l=0) we can guess our ansatz to be of the form:
+
 $$
 u_\alpha(\rho) = \rho e^{-\alpha \rho}
 $$
+
 where $$\alpha$$ is the variational parameter of our wavefunction which is restricted to be more than 0. That is step number 1. 
 
-Now for step 2, we have $$<u(\rho)|u(\rho)> = \frac{1}{4\alpha^3}$$ and $$<u(\rho)|H|u(\rho)>$$ = $$\frac{\alpha-1}{4\alpha^2} - \frac{1}{8\alpha}$$
+Now for step 2, we have, 
+
+$$<u(\rho)|u(\rho)> = \frac{1}{4\alpha^3}$$
+
+$$<u(\rho)|H|u(\rho)>$$ = $$\frac{\alpha-1}{4\alpha^2} - \frac{1}{8\alpha}$$
+
 Putting it all together, the expectation of the Hamiltonian has the form:
 
 $$
