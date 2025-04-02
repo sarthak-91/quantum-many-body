@@ -7,7 +7,7 @@ from quantum_lib.network import gradient
 """
 
 def t_wave(r:torch.Tensor,alpha:float=1):
-    return alpha* r * torch.exp(-alpha*r)
+    return r * torch.exp(-alpha*r)
 
 
 
@@ -34,7 +34,7 @@ def domain_check(x):
 
 if __name__ == "__main__":
 
-    for i in np.arange(0.3,1.3,0.1):
+    for i in [0.7,8/9,1,1.1]:
         r = torch.tensor([1.0],requires_grad=True) #starting vector 
 
         def probab(r):
@@ -43,12 +43,12 @@ if __name__ == "__main__":
         list_of_samples = monte_carlo_sample(input_vector=r,probab=probab, 
                                                domain_check=domain_check, 
                                                update_rule=update_rule,
-                                               n_samples=30000,sample_gap=30, burn_in=300) 
+                                               n_samples=90000,sample_gap=50, burn_in=1000) 
 
 
         wave_func_tensor = t_wave(list_of_samples,alpha=i)
         energy_values = e_loc(list_of_samples,wave_func= wave_func_tensor )
         expect_value = torch.mean(energy_values)
         std_value =  torch.std(energy_values)
-        print("{:.2f} Num of samples = {} Expectation: grad= {:.5f}, std={:.5f}".format(i,len(list_of_samples),
+        print("{:.2f} Num of samples = {} Expectation: E= {:.12f}, std={:.12f}".format(i,len(list_of_samples),
                                                                                          expect_value, std_value))
