@@ -1,0 +1,5 @@
+theme: minima
+title: Quantum Many Body Calculations
+description: A step by step intro into QMC
+kramdown:
+  math_engine: mathjax
