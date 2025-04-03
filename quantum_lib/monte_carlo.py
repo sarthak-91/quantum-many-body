@@ -4,7 +4,7 @@ def monte_carlo_sample(input_vector, probab, update_rule, domain_check=None, n_s
     """
     Monte Carlo sampler .
     """
-    current_state = input_vector.clone().detach().requires_grad_(True) 
+    current_state = input_vector.clone().detach().requires_grad_(input_vector.requires_grad)
     samples = []
     
     prob_current = probab(current_state)

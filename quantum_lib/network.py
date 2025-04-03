@@ -1,15 +1,32 @@
-import numpy as np
 import torch
 import torch.nn as nn
+from torch.func import hessian,vmap
+from torch.autograd import grad
 
 def gradient(y: torch.Tensor, x: torch.Tensor, order:int =1)->torch.Tensor:
     derivative = y
     for i in range(order):
-        derivative =torch.autograd.grad(
+        derivative =grad(
                 derivative,x,
                 torch.ones_like(x),
                 create_graph=True,retain_graph=True)[0]
     return derivative
+
+def laplacian(function, input_, batch_dim=False):
+    """Computes the Laplacian (sum of diagonal elements of the Hessian)"""
+    if batch_dim:
+        hessians = vmap(hessian(function))(input_)  
+    else:
+        hessians = hessian(function)(input_) 
+    
+    return hessians.diagonal(dim1=-2, dim2=-1).sum(-1) 
+
+def hess(function, input_, batch_dim=False):
+    if batch_dim:
+        return vmap(hessian(function))(input_) 
+    else: 
+        return hessian(function)(input_)  
+
 
 class SinAct(torch.nn.Module):
     """custom sine activation function"""
